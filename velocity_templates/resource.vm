@@ -25,3 +25,19 @@
 <ul class='endpoints' id='$resourceName_endpoint_list' style='display:none'>
 
 </ul>
+<ul>Bindings:
+	#foreach($binding in $inputBindings)
+		<li>
+			<ul>
+				<li>Name: $binding.getName()
+				</li>
+				<li>ID: $binding.getId()
+				</li>
+				<li>Mode: $binding.getMode()
+				</li>
+				<li>Type: $binding.getType()
+				</li>
+			</ul>
+		</li>
+	#end
+</ul>
