@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Starbucks</title>
+<!-- Bootstrap -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/basic.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<div class='heading'>
+    <h2>
+        <a href='#!/Order' onclick="Docs.toggleEndpointListForResource('Order');">/Order</a>
+    </h2>
+    <ul class='options'>
+        <li>
+            <a href='#!/Order' id='endpointListTogger_Order'
+               onclick="Docs.toggleEndpointListForResource('Order');">Show/Hide</a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.collapseOperationsForResource('Order'); return false;">
+                List Operations
+            </a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.expandOperationsForResource('Order'); return false;">
+                Expand Operations
+            </a>
+        </li>
+        <li>
+            <a href='/{orderId}'>Raw</a>
+        </li>
+    </ul>
+</div>
+<ul class='endpoints' id='$resourceName_endpoint_list' style='display:none'>
+
+</ul>
+<ul>Bindings:
+			<li>
+			<ul>
+				<li>Name: orderId
+				</li>
+				<li>ID: orderIdBinding
+				</li>
+				<li>Mode: url
+				</li>
+				<li>Type: string
+				</li>
+			</ul>
+		</li>
+	</ul>
+<ul class='operations' >
+      <li class='GET operation' id='$resourceName_getOrder'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/Order/$operationName_GET}' class="toggleOperation">GET</a>
+                  </span>
+                  <span class='path'>
+                    <a href='#!/Order/$operationName_GET}' class="toggleOperation">/{orderId}</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+                    <a href='#!/Order/$operationName_GET}' class="toggleOperation">Retrieve the order identified by the specified identifier</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='$resourceName_$operationName_$httpMethod_content'>
+            
+                <form accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+                  
+									 
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        							<td>404</td><td>Specified order does not exist</td>
+													<td>500</td><td>An unexpected runtime exception</td>
+						                        </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+                        <input class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif' />
+                    </div>
+                 
+                </form>
+                <div class='response'>
+                    <h4>Request URL</h4>
+                    <div class='block request_url'></div>
+                    <h4>Response Body</h4>
+                    <div class='block response_body'></div>
+                    <h4>Response Code</h4>
+                    <div class='block response_code'></div>
+                    <h4>Response Headers</h4>
+                    <div class='block response_headers'></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+<div>----------------------------------------------------</div>
+<ul class='test'>
+	<li>operationName: 
+					getOrder
+				</li>
+				<li>resourceName:
+			Order
+		</li>
+			
+					<li>description:
+			Retrieve the order identified by the specified identifier
+			</li>
+		
+					<li>path:
+			/{orderId}
+			</li>
+			
+	<li>Input
+		<ul>
+			
+						
+													<li>
+        		Parameters:
+        		<ul>
+        			        			<li>
+						<ul>
+																																				<li>Binding: orderIdBinding</li>
+																				</ul>
+					</li>
+					        		</ul>
+							</li>
+			<li>
+			    		Content Types:
+        		<ul>
+        			        		</ul>
+						</li>
+		</ul>	
+	</li>
+	<li>Output
+		<ul>
+			<li>Type: 
+									Order
+							</li>
+			<li>ContentType: 
+								<ul>
+											<li>Type: application/json</li>
+									</ul>
+							</li>
+			<li>Description: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Headers: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Ref: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Status: 
+									200
+							</li>
+		</ul>
+	</li>
+	<li>httpMethod:
+					GET
+			</li>
+	<li>Error List
+				<ul>
+							<li>status: 404 - cause: Specified order does not exist</li>
+							<li>status: 500 - cause: An unexpected runtime exception</li>
+					</ul>
+		</li>
+<div>----------------------------------------------------</div>
+</ul>	
+<ul class='operations' >
+      <li class='DELETE operation' id='$resourceName_deleteOrder'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/Order/$operationName_DELETE}' class="toggleOperation">DELETE</a>
+                  </span>
+                  <span class='path'>
+                    <a href='#!/Order/$operationName_DELETE}' class="toggleOperation">/{orderId}</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+                    <a href='#!/Order/$operationName_DELETE}' class="toggleOperation">Remove the order identified by the specified ID from the system</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='$resourceName_$operationName_$httpMethod_content'>
+            
+                <form accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+                  
+									 
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        							<td>404</td><td>Specified order does not exist</td>
+													<td>500</td><td>An unexpected runtime exception</td>
+						                        </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+                        <input class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif' />
+                    </div>
+                 
+                </form>
+                <div class='response'>
+                    <h4>Request URL</h4>
+                    <div class='block request_url'></div>
+                    <h4>Response Body</h4>
+                    <div class='block response_body'></div>
+                    <h4>Response Code</h4>
+                    <div class='block response_code'></div>
+                    <h4>Response Headers</h4>
+                    <div class='block response_headers'></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+<div>----------------------------------------------------</div>
+<ul class='test'>
+	<li>operationName: 
+					deleteOrder
+				</li>
+				<li>resourceName:
+			Order
+		</li>
+			
+					<li>description:
+			Remove the order identified by the specified ID from the system
+			</li>
+		
+					<li>path:
+			/{orderId}
+			</li>
+			
+	<li>Input
+		<ul>
+			
+						
+													<li>
+        		Parameters:
+        		<ul>
+        			        			<li>
+						<ul>
+																																				<li>Binding: orderIdBinding</li>
+																				</ul>
+					</li>
+					        		</ul>
+							</li>
+			<li>
+			    		Content Types:
+        		<ul>
+        			        		</ul>
+						</li>
+		</ul>	
+	</li>
+	<li>Output
+		<ul>
+			<li>Type: 
+									Order
+							</li>
+			<li>ContentType: 
+								<ul>
+											<li>Type: application/json</li>
+									</ul>
+							</li>
+			<li>Description: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Headers: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Ref: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Status: 
+									200
+							</li>
+		</ul>
+	</li>
+	<li>httpMethod:
+					DELETE
+			</li>
+	<li>Error List
+				<ul>
+							<li>status: 404 - cause: Specified order does not exist</li>
+							<li>status: 500 - cause: An unexpected runtime exception</li>
+					</ul>
+		</li>
+<div>----------------------------------------------------</div>
+</ul>	<div class='heading'>
+    <h2>
+        <a href='#!/Login' onclick="Docs.toggleEndpointListForResource('Login');">/Login</a>
+    </h2>
+    <ul class='options'>
+        <li>
+            <a href='#!/Login' id='endpointListTogger_Login'
+               onclick="Docs.toggleEndpointListForResource('Login');">Show/Hide</a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.collapseOperationsForResource('Login'); return false;">
+                List Operations
+            </a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.expandOperationsForResource('Login'); return false;">
+                Expand Operations
+            </a>
+        </li>
+        <li>
+            <a href='/login'>Raw</a>
+        </li>
+    </ul>
+</div>
+<ul class='endpoints' id='$resourceName_endpoint_list' style='display:none'>
+
+</ul>
+<ul>Bindings:
+	</ul>
+<ul class='operations' >
+      <li class='POST operation' id='$resourceName_login'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/Login/$operationName_POST}' class="toggleOperation">POST</a>
+                  </span>
+                  <span class='path'>
+                    <a href='#!/Login/$operationName_POST}' class="toggleOperation">/login</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+                    <a href='#!/Login/$operationName_POST}' class="toggleOperation">Login to the system using simple username/password authentication</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='$resourceName_$operationName_$httpMethod_content'>
+            
+                <form accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+                  
+									 
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                                                </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+                        <input class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif' />
+                    </div>
+                 
+                </form>
+                <div class='response'>
+                    <h4>Request URL</h4>
+                    <div class='block request_url'></div>
+                    <h4>Response Body</h4>
+                    <div class='block response_body'></div>
+                    <h4>Response Code</h4>
+                    <div class='block response_code'></div>
+                    <h4>Response Headers</h4>
+                    <div class='block response_headers'></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+<div>----------------------------------------------------</div>
+<ul class='test'>
+	<li>operationName: 
+					login
+				</li>
+				<li>resourceName:
+			Login
+		</li>
+			
+					<li>description:
+			Login to the system using simple username/password authentication
+			</li>
+		
+					<li>path:
+			/login
+			</li>
+			
+	<li>Input
+		<ul>
+			
+							<li>Type: LoginFormType</li>
+						
+														No Parameters specified!
+							</li>
+			<li>
+							<span class="undefined">Undefined</span>
+						</li>
+		</ul>	
+	</li>
+	<li>Output
+		<ul>
+			<li>Type: 
+									boolean
+							</li>
+			<li>ContentType: 
+								<ul>
+											<li>Type: application/json</li>
+									</ul>
+							</li>
+			<li>Description: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Headers: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Ref: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Status: 
+									200
+							</li>
+		</ul>
+	</li>
+	<li>httpMethod:
+					POST
+			</li>
+	<li>Error List
+					<span class="undefined">Undefined</span>
+		</li>
+<div>----------------------------------------------------</div>
+</ul>	<div class='heading'>
+    <h2>
+        <a href='#!/AllOrders' onclick="Docs.toggleEndpointListForResource('AllOrders');">/AllOrders</a>
+    </h2>
+    <ul class='options'>
+        <li>
+            <a href='#!/AllOrders' id='endpointListTogger_AllOrders'
+               onclick="Docs.toggleEndpointListForResource('AllOrders');">Show/Hide</a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.collapseOperationsForResource('AllOrders'); return false;">
+                List Operations
+            </a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.expandOperationsForResource('AllOrders'); return false;">
+                Expand Operations
+            </a>
+        </li>
+        <li>
+            <a href='/'>Raw</a>
+        </li>
+    </ul>
+</div>
+<ul class='endpoints' id='$resourceName_endpoint_list' style='display:none'>
+
+</ul>
+<ul>Bindings:
+	</ul>
+<ul class='operations' >
+      <li class='POST operation' id='$resourceName_submitOrder'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/AllOrders/$operationName_POST}' class="toggleOperation">POST</a>
+                  </span>
+                  <span class='path'>
+                    <a href='#!/AllOrders/$operationName_POST}' class="toggleOperation">/</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+                    <a href='#!/AllOrders/$operationName_POST}' class="toggleOperation">Place a new drink order.</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='$resourceName_$operationName_$httpMethod_content'>
+            
+                <form accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+                  
+									 
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        							<td>500</td><td>An unexpected runtime exception</td>
+						                        </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+                        <input class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif' />
+                    </div>
+                 
+                </form>
+                <div class='response'>
+                    <h4>Request URL</h4>
+                    <div class='block request_url'></div>
+                    <h4>Response Body</h4>
+                    <div class='block response_body'></div>
+                    <h4>Response Code</h4>
+                    <div class='block response_code'></div>
+                    <h4>Response Headers</h4>
+                    <div class='block response_headers'></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+<div>----------------------------------------------------</div>
+<ul class='test'>
+	<li>operationName: 
+					submitOrder
+				</li>
+				<li>resourceName:
+			AllOrders
+		</li>
+			
+					<li>description:
+			Place a new drink order.
+			</li>
+		
+					<li>path:
+			/
+			</li>
+			
+	<li>Input
+		<ul>
+			
+							<li>Type: OrderRequest</li>
+						
+														No Parameters specified!
+							</li>
+			<li>
+							<span class="undefined">Undefined</span>
+						</li>
+		</ul>	
+	</li>
+	<li>Output
+		<ul>
+			<li>Type: 
+									Order
+							</li>
+			<li>ContentType: 
+								<ul>
+											<li>Type: application/json</li>
+									</ul>
+							</li>
+			<li>Description: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Headers: 
+								<ul>
+											<li>Name: 
+															Location
+													</li>
+						<li>Description: 
+															A URL pointer to the Order resource created by this operation
+														</li>
+						<li>Ref: 
+															Order
+													</li>
+									</ul>
+							</li>
+			<li>Ref: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Status: 
+									201
+							</li>
+		</ul>
+	</li>
+	<li>httpMethod:
+					POST
+			</li>
+	<li>Error List
+				<ul>
+							<li>status: 500 - cause: An unexpected runtime exception</li>
+					</ul>
+		</li>
+<div>----------------------------------------------------</div>
+</ul>	
+<ul class='operations' >
+      <li class='GET operation' id='$resourceName_getAllOrders'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/AllOrders/$operationName_GET}' class="toggleOperation">GET</a>
+                  </span>
+                  <span class='path'>
+                    <a href='#!/AllOrders/$operationName_GET}' class="toggleOperation">/</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+                    <a href='#!/AllOrders/$operationName_GET}' class="toggleOperation">Retrieve all the orders currently pending in the system</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='$resourceName_$operationName_$httpMethod_content'>
+            
+                <form accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+                  
+									 
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        							<td>500</td><td>An unexpected runtime exception</td>
+						                        </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+                        <input class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif' />
+                    </div>
+                 
+                </form>
+                <div class='response'>
+                    <h4>Request URL</h4>
+                    <div class='block request_url'></div>
+                    <h4>Response Body</h4>
+                    <div class='block response_body'></div>
+                    <h4>Response Code</h4>
+                    <div class='block response_code'></div>
+                    <h4>Response Headers</h4>
+                    <div class='block response_headers'></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+<div>----------------------------------------------------</div>
+<ul class='test'>
+	<li>operationName: 
+					getAllOrders
+				</li>
+				<li>resourceName:
+			AllOrders
+		</li>
+			
+					<li>description:
+			Retrieve all the orders currently pending in the system
+			</li>
+		
+					<li>path:
+			/
+			</li>
+			
+	<li>Input
+		<ul>
+			
+						
+														No Parameters specified!
+							</li>
+			<li>
+							<span class="undefined">Undefined</span>
+						</li>
+		</ul>	
+	</li>
+	<li>Output
+		<ul>
+			<li>Type: 
+									list(Order)
+							</li>
+			<li>ContentType: 
+								<ul>
+											<li>Type: application/json</li>
+									</ul>
+							</li>
+			<li>Description: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Headers: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Ref: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Status: 
+									200
+							</li>
+		</ul>
+	</li>
+	<li>httpMethod:
+					GET
+			</li>
+	<li>Error List
+				<ul>
+							<li>status: 500 - cause: An unexpected runtime exception</li>
+					</ul>
+		</li>
+<div>----------------------------------------------------</div>
+</ul>	
+<ul class='operations' >
+      <li class='OPTIONS operation' id='$resourceName_getDescription'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/AllOrders/$operationName_OPTIONS}' class="toggleOperation">OPTIONS</a>
+                  </span>
+                  <span class='path'>
+                    <a href='#!/AllOrders/$operationName_OPTIONS}' class="toggleOperation">/</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+                    <a href='#!/AllOrders/$operationName_OPTIONS}' class="toggleOperation">$description</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='$resourceName_$operationName_$httpMethod_content'>
+            
+                <form accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+                  
+									 
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                                                </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+                        <input class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif' />
+                    </div>
+                 
+                </form>
+                <div class='response'>
+                    <h4>Request URL</h4>
+                    <div class='block request_url'></div>
+                    <h4>Response Body</h4>
+                    <div class='block response_body'></div>
+                    <h4>Response Code</h4>
+                    <div class='block response_code'></div>
+                    <h4>Response Headers</h4>
+                    <div class='block response_headers'></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+<div>----------------------------------------------------</div>
+<ul class='test'>
+	<li>operationName: 
+					getDescription
+				</li>
+				<li>resourceName:
+			AllOrders
+		</li>
+			
+		
+					<li>path:
+			/
+			</li>
+			
+	<li>Input
+		<ul>
+			
+						
+														No Parameters specified!
+							</li>
+			<li>
+							<span class="undefined">Undefined</span>
+						</li>
+		</ul>	
+	</li>
+	<li>Output
+		<ul>
+			<li>Type: 
+									_API_
+							</li>
+			<li>ContentType: 
+								<ul>
+											<li>Type: application/json</li>
+									</ul>
+							</li>
+			<li>Description: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Headers: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Ref: 
+									<span class="undefined">Undefined</span>
+							</li>
+			<li>Status: 
+									200
+							</li>
+		</ul>
+	</li>
+	<li>httpMethod:
+					OPTIONS
+			</li>
+	<li>Error List
+					<span class="undefined">Undefined</span>
+		</li>
+<div>----------------------------------------------------</div>
+</ul>	<div class="footNotes" id="baseUrls">
+	<div>http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks</div>
+	<div>https://localhost:8243/starbucks-1.0-SNAPSHOT/starbucks</div>
+</div>
+<div class="footNotes" id="license">apache2</div>
+<div class="footNotes" id="community">http://localhost:8080/starbucks-1.0-SNAPSHOT/community</div>
+</body>
+</html>

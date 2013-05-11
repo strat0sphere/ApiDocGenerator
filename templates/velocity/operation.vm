@@ -85,99 +85,59 @@
 			<span class="undefined">Undefined</span>
 		#end
 		</li>
-	<li>resourceName:
 		#if($resourceName)
+		<li>resourceName:
 			$resourceName
-		#else
-			<span class="undefined">Undefined</span>
+		</li>
 		#end
-	</li>
-	<li>description:
+	
 		#if($description)
+			<li>description:
 			$description
-		#else
-			<span class="undefined">Undefined</span>
+			</li>
 		#end
-	</li>
-	<li>path:
+
 		#if($path)
+			<li>path:
 			$path
-		#else
-			<span class="undefined">Undefined</span>
+			</li>
 		#end
-	</li>
+	
 	<li>Input
 		<ul>
-			<li>Type: 
-				#if($input.getType())
-					$input.getType()
-				#else
-					<span class="undefined">Undefined</span>
-				#end
-			</li>
 			
-			<li>Description: 
-				#if($input.getDescription())
-					$input.getDescription()
-				#else
-					<span class="undefined">Undefined</span>
-				#end
-				</li>
-			<li>
-				Ref: 
-				#if($input.getRef())
-					$input.getRef()
-				#else
-					<span class="undefined">Undefined</span>
-				#end
-			</li>
-			<li>
+			#if($input.getType())
+				<li>Type: $input.getType()</li>
+			#end
+			
+			#if
+				($input.getDescription())<li>Description: $input.getDescription()</li>
+			#end
+			#if($input.getRef())
+				<li>Ref: $input.getRef()</li>
+			#end
+			#if($input.getParams())
+				<li>
         		Parameters:
-				#if($input.getParams())
         		<ul>
         			#foreach ($param in $input.getParams())
         			<li>
 						<ul>
-							<li>
-								Name:  
-								#if($param.getName())
-									$param.getName()
-								#else
-									<span class="undefined">Undefined</span>
-								#end
-							</li>
-							<li>
-								Description: 
-								#if($param.getDescription())
-									$param.getDescription()
-								#else
-									<span class="undefined">Undefined</span>
-								#end
-							</li>
-							<li>
-								Mode: 
-								#if($param.getMode())
-									$param.getMode()
-								#else
-									<span class="undefined">Undefined</span>
-								#end	
-							</li>
-							<li>
-								Binding: 
-								#if($param.getBinding())
-									$param.getBinding()
-								#else
-									<span class="undefined">Undefined</span>
-								#end	
-							</li>
-							<li>
-								Type: 
-								#if($param.getType())
-									$param.getType()
-								#else
-									<span class="undefined">Undefined</span>
-								#end		
-							</li>
+							#if($param.getName())
+							<li>Name: $param.getName()</li>
+							#end
+							#if($param.getDescription())
+							<li>Description: $param.getDescription()</li>
+							#end
+							#if($param.getMode())
+							<li>Mode: $param.getMode()</li>
+							#end
+							#if($param.getBinding())
+								<li>Binding: $param.getBinding()</li>
+							#end	
+							#if($param.getType())
+								<li>Type:$param.getType()</li>
+							#end
 						</ul>
 					</li>
 					#end

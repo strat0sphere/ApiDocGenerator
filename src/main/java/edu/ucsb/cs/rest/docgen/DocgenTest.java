@@ -23,6 +23,8 @@ import edu.ucsb.cs.rest.api.Parameter;
 import edu.ucsb.cs.rest.api.Resource;
 import edu.ucsb.cs.rest.parser.APIDescriptionParser;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 
@@ -35,23 +37,29 @@ public class DocgenTest {
 	 */
 	public static void main(String[] args) throws IOException {
 		
-		//API api = APIDescriptionParser.parse("{\"name\" : \"Foo\"}"); 
 		API api = APIDescriptionParser.parseFromFile("input/starbucks.json");
-		//System.out.println(api.getName());
 		PrintWriter out = new PrintWriter(new FileWriter("output/index.html"));
-		
+		Writer writer = new StringWriter();
 		Velocity.init();
+		
+		//Map<String, Object> htmlFieldsMap = new HashMap<String, Object>();
+		
+		Template headerTemplate = Velocity.getTemplate("templates/velocity/header.vm");
+		Template resourceTemplate = Velocity.getTemplate("templates/velocity/resource.vm");
+		Template operationTemplate = Velocity.getTemplate("templates/velocity/operation.vm");
+		Template footerTemplate = Velocity.getTemplate("templates/velocity/footer.vm");
+		
+		String resourceName, path = "";
+		NamedInputBinding[] namedInputBindings;
+		NamedTypeDef[] namedTypeDefs = api.getDataTypes();
+		
+		//\\\\\\\\\\\\\\ Building the Header \\\\\\\\\\\\\\
+		VelocityContext headerContext = new VelocityContext();
+		headerContext.put("apiName", api.getName());
+		headerTemplate.merge(headerContext, writer);
 		
 		try
 		{
-			Template resourceTemplate = Velocity.getTemplate("velocity_templates/resource.vm");
-			Template operationTemplate = Velocity.getTemplate("velocity_templates/operation.vm");
-			
-			String resourceName, path = "";
-			NamedInputBinding[] namedInputBindings;
-			NamedTypeDef[] namedTypeDefs = api.getDataTypes();
-			
-			Writer writer = new StringWriter();
 			for (Resource resource : api.getResources())
 			{
 				resourceName = resource.getName();
@@ -105,6 +113,7 @@ public class DocgenTest {
 										System.out.println("Field Description: " + field.getDescription());
 										System.out.println("Field Type: " + field.getType());
 										System.out.println("Field Ref: " +  field.getRef());
+										
 									}
 	
 								}
@@ -134,13 +143,25 @@ public class DocgenTest {
 						//Do nothing
 					}
 					operationContext.put("output", operation.getOutput());
-					
+				
 					
 					operationTemplate.merge(operationContext, writer);
 					
 				}
 				
 			}
+			
+			//\\\\\\\\\\\\\\ Building the Footer \\\\\\\\\\\\\\
+			VelocityContext footerContext = new VelocityContext();
+		
+			footerContext.put("baseUrls", api.getBase());
+			footerContext.put("license", api.getLicense());
+			footerContext.put("community", api.getCommunity());
+			//Get Owners
+			//Get Security
+			//Get SLAs
+			footerTemplate.merge(footerContext, writer);
+			
 			
 			out.print(writer);
 			out.close();
