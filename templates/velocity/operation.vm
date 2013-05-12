@@ -1,29 +1,27 @@
 
 <ul class='operations' >
-      <li class='$httpMethod operation' id='$resourceName_$operationName'>
+      <li class='$!httpMethod operation' id='$!resourceName_$!operationName'>
             <div class='heading'>
                 <h3>
                   <span class='http_method'>
-                    <a href='#!/$resourceName/$operationName_$httpMethod}' class="toggleOperation">$httpMethod</a>
+                    <a href='#!/$!resourceName/$!operationName_$!httpMethod}' class="toggleOperation">$!httpMethod</a>
                   </span>
                   <span class='path'>
-                    <a href='#!/$resourceName/$operationName_$httpMethod}' class="toggleOperation">$path</a>
+                    <a href='#!/$!resourceName/$!operationName_$!httpMethod}' class="toggleOperation">$!path</a>
                   </span>
                 </h3>
                 <ul class='options'>
                     <li>
-                    <a href='#!/$resourceName/$operationName_$httpMethod}' class="toggleOperation">$description</a>
+                    <a href='#!/$!resourceName/$!operationName_$!httpMethod}' class="toggleOperation">$!description</a>
                     </li>
                 </ul>
             </div>
-            <div class='content' id='$resourceName_$operationName_$httpMethod_content'>
+            <div class='content' id='$!resourceName_$!operationName_$!httpMethod_content'>
             
                 <form accept-charset='UTF-8' class='sandbox'>
                     <div style='margin:0;padding:0;display:inline'></div>
                   
-					#if ($parameters)
-                    <h4>Parameters</h4>
-                    <table class='fullwidth'>
+					 <table class='fullwidth'>
                         <thead>
                         <tr>
                             <th style="width: 100px; max-width: 100px" >Parameter</th>
@@ -33,12 +31,24 @@
                         </tr>
                         </thead>
                         <tbody class="operation-params">
-
+                        #foreach ($inputParameter in $inputParameters)
+                        	#if ($inputParameter.isOptional())
+                        		#set ($classType = "optional")
+                        	#else
+                        		#set ($classType = "required")
+                        	#end
+                        	
+                        	#set ($inputType = "text")
+                        <tr>	
+                        <td class="code $classType">$inputParameter.getName()</td>
+                        <td><input class=$classType type=$inputType value="" placeholder=($classType) name=$!inputParameter.getName()></td>
+                        <td>$!inputParameter.getDescription()</td>
+                        <td>$!inputParameter.getType()</td>
+                        </tr>
+                        #end
                         </tbody>
                     </table>
-                   #end
-				 
-                    #if( $errors != "" )
+                    #if( $!errors )
                     <div style='margin:0;padding:0;display:inline'></div>
                     <h4>Error Status Codes</h4>
                     <table class='fullwidth'>
@@ -76,181 +86,3 @@
             </div>
         </li>
     </ul>
-<div>----------------------------------------------------</div>
-<ul class='test'>
-	<li>operationName: 
-		#if($operationName)
-			$operationName
-		#else
-			<span class="undefined">Undefined</span>
-		#end
-		</li>
-		#if($resourceName)
-		<li>resourceName:
-			$resourceName
-		</li>
-		#end
-	
-		#if($description)
-			<li>description:
-			$description
-			</li>
-		#end
-
-		#if($path)
-			<li>path:
-			$path
-			</li>
-		#end
-	
-	<li>Input
-		<ul>
-			
-			#if($input.getType())
-				<li>Type: $input.getType()</li>
-			#end
-			
-			#if
-				($input.getDescription())<li>Description: $input.getDescription()</li>
-			#end
-			#if($input.getRef())
-				<li>Ref: $input.getRef()</li>
-			#end
-			#if($input.getParams())
-				<li>
-        		Parameters:
-        		<ul>
-        			#foreach ($param in $input.getParams())
-        			<li>
-						<ul>
-							#if($param.getName())
-							<li>Name: $param.getName()</li>
-							#end
-							#if($param.getDescription())
-							<li>Description: $param.getDescription()</li>
-							#end
-							#if($param.getMode())
-							<li>Mode: $param.getMode()</li>
-							#end
-							#if($param.getBinding())
-								<li>Binding: $param.getBinding()</li>
-							#end	
-							#if($param.getType())
-								<li>Type:$param.getType()</li>
-							#end
-						</ul>
-					</li>
-					#end
-        		</ul>
-				#else
-					No Parameters specified!
-				#end
-			</li>
-			<li>
-			#if($input.getParams())
-    		Content Types:
-        		<ul>
-        			#foreach ($contentType in $input.getContentType())
-        				<li>$contentType</li>
-					#end
-        		</ul>
-			#else
-				<span class="undefined">Undefined</span>
-			#end
-			</li>
-		</ul>	
-	</li>
-	<li>Output
-		<ul>
-			<li>Type: 
-				#if($output.getType())
-					$output.getType()
-				#else
-				<span class="undefined">Undefined</span>
-				#end
-			</li>
-			<li>ContentType: 
-				#if($output.getContentType())
-				<ul>
-					#foreach ($type in $output.getContentType())
-						<li>Type: $type</li>
-					#end
-				</ul>
-				#else
-				<span class="undefined">Undefined</span>
-				#end
-			</li>
-			<li>Description: 
-				#if($output.getDescription())
-					$output.getDescription()
-				#else
-					<span class="undefined">Undefined</span>
-				#end
-			</li>
-			<li>Headers: 
-				#if($output.getHeaders())
-				<ul>
-					#foreach ($header in $output.getHeaders())
-						<li>Name: 
-							#if($header.getName())
-								$header.getName()
-							#else
-								<span class="undefined">Undefined</span>
-							#end
-						</li>
-						<li>Description: 
-							#if($header.getDescription())
-								$header.getDescription()
-							#else
-								<span class="undefined">Undefined</span>
-							#end
-							</li>
-						<li>Ref: 
-							#if($header.getRef())
-								$header.getRef()
-							#else
-								<span class="undefined">Undefined</span>
-							#end
-						</li>
-					#end
-				</ul>
-				#else
-					<span class="undefined">Undefined</span>
-				#end
-			</li>
-			<li>Ref: 
-				#if($output.getRef())
-					$output.getRef()
-				#else
-					<span class="undefined">Undefined</span>
-				#end
-			</li>
-			<li>Status: 
-				#if($output.getStatus())
-					$output.getStatus()
-				#else
-					<span class="undefined">Undefined</span>
-				#end
-			</li>
-		</ul>
-	</li>
-	<li>httpMethod:
-		#if($httpMethod)
-			$httpMethod
-		#else
-			<span class="undefined">Undefined</span>
-		#end
-	</li>
-	<li>Error List
-		#if($errors)
-		<ul>
-			#foreach ($error in $errors)
-				<li>status: $error.getStatus() - cause: $error.getCause()</li>
-			#end
-		</ul>
-		#else
-			<span class="undefined">Undefined</span>
-		#end
-</li>
-<div>----------------------------------------------------</div>
-</ul>	

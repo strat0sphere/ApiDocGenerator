@@ -25,6 +25,7 @@
 <ul class='endpoints' id='$resourceName_endpoint_list' style='display:none'>
 
 </ul>
+<!--
 <ul>Bindings:
 	#foreach($binding in $inputBindings)
 		<li>
@@ -41,3 +42,4 @@
 		</li>
 	#end
 </ul>
+-->

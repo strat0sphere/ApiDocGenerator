@@ -1,9 +1,10 @@
 <div class="footNotes" id="baseUrls">
+	Base Urls:
 #foreach($baseUrl in $baseUrls)
 	<div>$baseUrl</div>
 #end
 </div>
-<div class="footNotes" id="license">$license</div>
-<div class="footNotes" id="community">$community</div>
+<div class="footNotes" id="license"> License: $license</div>
+<div class="footNotes" id="community"> Community: $community</div>
 </body>
 </html>
