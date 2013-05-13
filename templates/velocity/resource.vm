@@ -1,19 +1,20 @@
+<li id="resource_$!resourceName" class = "resource active">
 <div class='heading'>
     <h2>
-        <a href='#!/$resourceName' onclick="Docs.toggleEndpointListForResource('$resourceName');">/$resourceName</a>
+        <a href='#!/$!resourceName' onclick="Docs.toggleEndpointListForResource('$!resourceName');">/$!resourceName</a>
     </h2>
     <ul class='options'>
         <li>
-            <a href='#!/$resourceName' id='endpointListTogger_$resourceName'
-               onclick="Docs.toggleEndpointListForResource('$resourceName');">Show/Hide</a>
+            <a href='#!/$!resourceName' id='endpointListTogger_$!resourceName'
+               onclick="Docs.toggleEndpointListForResource('$!resourceName');">Show/Hide</a>
         </li>
         <li>
-            <a href='#' onclick="Docs.collapseOperationsForResource('$resourceName'); return false;">
+            <a href='#' onclick="Docs.collapseOperationsForResource('$!resourceName'); return false;">
                 List Operations
             </a>
         </li>
         <li>
-            <a href='#' onclick="Docs.expandOperationsForResource('$resourceName'); return false;">
+            <a href='#' onclick="Docs.expandOperationsForResource('$!resourceName'); return false;">
                 Expand Operations
             </a>
         </li>
@@ -22,24 +23,4 @@
         </li>
     </ul>
 </div>
-<ul class='endpoints' id='$resourceName_endpoint_list' style='display:none'>
-
-</ul>
-<!--
-<ul>Bindings:
-	#foreach($binding in $inputBindings)
-		<li>
-			<ul>
-				<li>Name: $binding.getName()
-				</li>
-				<li>ID: $binding.getId()
-				</li>
-				<li>Mode: $binding.getMode()
-				</li>
-				<li>Type: $binding.getType()
-				</li>
-			</ul>
-		</li>
-	#end
-</ul>
--->
+<ul class='endpoints' id='$!resourceName_endpoint_list' style='display:none'>

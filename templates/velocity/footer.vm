@@ -1,10 +1,23 @@
-<div class="footNotes" id="baseUrls">
-	Base Urls:
-#foreach($baseUrl in $baseUrls)
-	<div>$baseUrl</div>
-#end
+	<!-- End of container -->
+	</ul>
+	<!-- End of resources container -->
 </div>
-<div class="footNotes" id="license"> License: $license</div>
-<div class="footNotes" id="community"> Community: $community</div>
+<div class="footerLine">&nbsp</div>
+<div class="footer" id="baseUrls">
+<ul>
+	<li>
+    	<h4>Base Urls:</h4>
+        #foreach($baseUrl in $baseUrls)
+        	<div>[$baseUrl]</div>
+        #end
+        
+	</li>
+	<li>
+		<h4>License: </h4>[$license]
+	</li>	
+	<li><h4>Community:</h4> [$community]
+	</li>
+</ul>
+</div>
 </body>
 </html>

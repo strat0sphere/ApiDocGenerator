@@ -1,5 +1,5 @@
-
-<ul class='operations' >
+<li class="endpoint">
+<ul class='operations'>
       <li class='$!httpMethod operation' id='$!resourceName_$!operationName'>
             <div class='heading'>
                 <h3>
@@ -12,6 +12,8 @@
                 </h3>
                 <ul class='options'>
                     <li>
+					<span class='operation_name'> <a href='#!/$!resourceName/$!operationName_$!httpMethod}' class="toggleOperation">$!operationName :</a>
+                  </span>
                     <a href='#!/$!resourceName/$!operationName_$!httpMethod}' class="toggleOperation">$!description</a>
                     </li>
                 </ul>
@@ -20,34 +22,36 @@
             
                 <form accept-charset='UTF-8' class='sandbox'>
                     <div style='margin:0;padding:0;display:inline'></div>
-                  
-					 <table class='fullwidth'>
-                        <thead>
-                        <tr>
-                            <th style="width: 100px; max-width: 100px" >Parameter</th>
-                            <th style="width: 310px; max-width: 310px">Value</th>
-                            <th style="width: 200px; max-width: 200px">Description</th>
-                            <th style="width: 320px; max-width: 330px">Data Type</th>
-                        </tr>
-                        </thead>
-                        <tbody class="operation-params">
-                        #foreach ($inputParameter in $inputParameters)
-                        	#if ($inputParameter.isOptional())
-                        		#set ($classType = "optional")
-                        	#else
-                        		#set ($classType = "required")
-                        	#end
-                        	
-                        	#set ($inputType = "text")
-                        <tr>	
-                        <td class="code $classType">$inputParameter.getName()</td>
-                        <td><input class=$classType type=$inputType value="" placeholder=($classType) name=$!inputParameter.getName()></td>
-                        <td>$!inputParameter.getDescription()</td>
-                        <td>$!inputParameter.getType()</td>
-                        </tr>
-                        #end
-                        </tbody>
-                    </table>
+					#if ($!inputParameters)
+                        <h4>Parameters</h4>
+    					 <table class='fullwidth'>
+                            <thead>
+                            <tr>
+                                <th style="width: 100px; max-width: 100px" >Parameter</th>
+                                <th style="width: 310px; max-width: 310px">Value</th>
+                                <th style="width: 200px; max-width: 200px">Description</th>
+                                <th style="width: 320px; max-width: 330px">Data Type</th>
+                            </tr>
+                            </thead>
+                            <tbody class="operation-params">
+                            #foreach ($!inputParameter in $!inputParameters)
+                            	#if ($!inputParameter.isOptional())
+                            		#set ($classType = "optional")
+                            	#else
+                            		#set ($classType = "required")
+                            	#end
+                            	
+                            	#set ($inputType = "text")
+                            <tr>	
+                            <td class="code $classType">$!inputParameter.getName()</td>
+                            <td><input class=$classType type=$inputType value="" placeholder=($classType) name=$!inputParameter.getName()></td>
+                            <td>$!inputParameter.getDescription()</td>
+                            <td>$!inputParameter.getType()</td>
+                            </tr>
+                            #end
+                            </tbody>
+                        </table>
+					#end	
                     #if( $!errors )
                     <div style='margin:0;padding:0;display:inline'></div>
                     <h4>Error Status Codes</h4>
@@ -59,8 +63,8 @@
                         </tr>
                         </thead>
                         <tbody class="operation-status">
-                        #foreach($error in $errors)
-							<td>$error.getStatus()</td><td>$error.getCause()</td>
+                        #foreach($!error in $!errors)
+							<tr><td>$!error.getStatus()</td><td>$!error.getCause()</td></tr>
 						#end
                         </tbody>
                     </table>
@@ -69,11 +73,12 @@
                     <div class='sandbox_header'>
                         <input class='submit' name='commit' type='button' value='Try it out!' />
                         <a href='#' class='response_hider'>Hide Response</a>
-                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif' />
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
                     </div>
                  
                 </form>
-                <div class='response'>
+	
+                <div class='response' style='display:none'>
                     <h4>Request URL</h4>
                     <div class='block request_url'></div>
                     <h4>Response Body</h4>
@@ -83,6 +88,8 @@
                     <h4>Response Headers</h4>
                     <div class='block response_headers'></div>
                 </div>
+			
             </div>
         </li>
     </ul>
+</li>

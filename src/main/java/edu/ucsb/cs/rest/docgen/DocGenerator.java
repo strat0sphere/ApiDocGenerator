@@ -48,6 +48,7 @@ public class DocGenerator {
 		
 		Template headerTemplate = Velocity.getTemplate("templates/velocity/header.vm");
 		Template resourceTemplate = Velocity.getTemplate("templates/velocity/resource.vm");
+		Template resourceEndTemplate = Velocity.getTemplate("templates/velocity/resourceEnd.vm");
 		Template operationTemplate = Velocity.getTemplate("templates/velocity/operation.vm");
 		Template footerTemplate = Velocity.getTemplate("templates/velocity/footer.vm");
 		
@@ -78,7 +79,6 @@ public class DocGenerator {
 
 				resourceTemplate.merge(resourceContext, writer);
 				
-				
 				//Print list of operations
 				for (Operation operation : resource.getOperations())
 				{
@@ -92,7 +92,7 @@ public class DocGenerator {
 					operationContext.put("description", operation.getDescription());
 					operationContext.put("path", path);
 					operationContext.put("errors", operation.getErrors());
-					operationContext.put("httpMethod", operation.getMethod());
+					operationContext.put("httpMethod", operation.getMethod().toLowerCase());
 					operationContext.put("input", operation.getInput());
 					
 					try
@@ -103,15 +103,11 @@ public class DocGenerator {
 							for (NamedTypeDef namedTypeDef: namedTypeDefs)
 							{
 								if (namedTypeDef.getName().equals(operation.getInput().getType()))
-								{
-									//System.out.println("Name: " + namedTypeDef.getName());
-									
+								{					
 									for (Field field : namedTypeDef.getFields())
 										inputParameters.add(new InputParameter(field));
-
 								}
 							}
-		
 						}
 						
 						//2. Search if there are parameters and if they match with the bindings specified by the resource
@@ -119,7 +115,6 @@ public class DocGenerator {
 						{
 							for (Parameter param : operation.getInput().getParams())
 							{
-							
 								for (NamedInputBinding inputBinding: namedInputBindings)
 								{
 									if (inputBinding.getId().equals(param.getBinding()))
@@ -129,17 +124,12 @@ public class DocGenerator {
 
 									}
 								}
-							
-								//System.out.println(param.getBinding());
-								//System.out.println(param.getBinding().getClass().getSimpleName());
 							}
 						}
 						
-						
 						if(!inputParameters.isEmpty())
-						{
 							operationContext.put("inputParameters", inputParameters);
-						}
+						
 					}
 					catch (NullPointerException npe)
 					{
@@ -147,9 +137,11 @@ public class DocGenerator {
 					}
 					operationContext.put("output", operation.getOutput());
 					operationTemplate.merge(operationContext, writer);
-					
+
 				}
 				
+				VelocityContext resourceEndContext = new VelocityContext();
+				resourceEndTemplate.merge(resourceEndContext, writer);
 			}
 			
 			//\\\\\\\\\\\\\\ Building the Footer \\\\\\\\\\\\\\
