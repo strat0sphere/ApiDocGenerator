@@ -44,8 +44,6 @@ public class DocGenerator {
 		Writer writer = new StringWriter();
 		Velocity.init();
 		
-		//Map<String, Object> htmlFieldsMap = new HashMap<String, Object>();
-		
 		Template headerTemplate = Velocity.getTemplate("templates/velocity/header.vm");
 		Template resourceTemplate = Velocity.getTemplate("templates/velocity/resource.vm");
 		Template resourceEndTemplate = Velocity.getTemplate("templates/velocity/resourceEnd.vm");
@@ -80,6 +78,7 @@ public class DocGenerator {
 				resourceTemplate.merge(resourceContext, writer);
 				
 				//Print list of operations
+				int number = 0; //Number of operation for this particular resource
 				for (Operation operation : resource.getOperations())
 				{
 					inputParameters = new ArrayList<InputParameter>();//The parameters array to pass on velocity
@@ -94,6 +93,8 @@ public class DocGenerator {
 					operationContext.put("errors", operation.getErrors());
 					operationContext.put("httpMethod", operation.getMethod().toLowerCase());
 					operationContext.put("input", operation.getInput());
+					operationContext.put("number", number);
+					number++;
 					
 					try
 					{
@@ -120,7 +121,6 @@ public class DocGenerator {
 									if (inputBinding.getId().equals(param.getBinding()))
 									{
 										inputParameters.add(new InputParameter(inputBinding, param));			
-										//System.out.println("Name: " + inputBinding.getName() + " - Type:" + inputBinding.getType());
 
 									}
 								}

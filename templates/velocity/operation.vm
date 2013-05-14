@@ -1,24 +1,24 @@
 <li class="endpoint">
 <ul class='operations'>
-      <li class='$!httpMethod operation' id='$!resourceName_$!operationName'>
+      <li class='$!httpMethod operation' id='$!{resourceName}_$!{operationName}_$!{httpMethod}_$!number'>
             <div class='heading'>
                 <h3>
                   <span class='http_method'>
-                    <a href='#!/$!resourceName/$!operationName_$!httpMethod}' class="toggleOperation">$!httpMethod</a>
+                    <a href='#!/$!resourceName/$!{operationName}_$!{httpMethod}_$!number' class="toggleOperation">$!httpMethod</a>
                   </span>
                   <span class='path'>
-                    <a href='#!/$!resourceName/$!operationName_$!httpMethod}' class="toggleOperation">$!path</a>
+                    <a href='#!/$!resourceName/$!{operationName}_$!{httpMethod}_$!number' class="toggleOperation">$!path</a>
                   </span>
                 </h3>
                 <ul class='options'>
                     <li>
-					<span class='operation_name'> <a href='#!/$!resourceName/$!operationName_$!httpMethod}' class="toggleOperation">$!operationName :</a>
+					<span class='operation_name'> <a href='#!/$!resourceName/$!{operationName}_$!{httpMethod}_$!number' class="toggleOperation">$!operationName :</a>
                   </span>
-                    <a href='#!/$!resourceName/$!operationName_$!httpMethod}' class="toggleOperation">$!description</a>
+                    <a href='#!/$!resourceName/$!{operationName}_$!{httpMethod}_$!number' class="toggleOperation">$!description</a>
                     </li>
                 </ul>
             </div>
-            <div class='content' id='$!resourceName_$!operationName_$!httpMethod_content'>
+            <div class='content' id='$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_content'>
             
                 <form accept-charset='UTF-8' class='sandbox'>
                     <div style='margin:0;padding:0;display:inline'></div>
