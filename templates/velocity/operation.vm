@@ -34,21 +34,7 @@
                             </tr>
                             </thead>
                             <tbody class="operation-params">
-                            #foreach ($!inputParameter in $!inputParameters)
-                            	#if ($!inputParameter.isOptional())
-                            		#set ($classType = "optional")
-                            	#else
-                            		#set ($classType = "required")
-                            	#end
-                            	
-                            	#set ($inputType = "text")
-                            <tr>	
-                            <td class="code $classType">$!inputParameter.getName()</td>
-                            <td><input class=$classType type=$inputType value="" placeholder=($classType) name=$!inputParameter.getName()></td>
-                            <td>$!inputParameter.getDescription()</td>
-                            <td>$!inputParameter.getType()</td>
-                            </tr>
-                            #end
+                             #parse("templates/velocity/contentType.vm")
                             </tbody>
                         </table>
 					#end	

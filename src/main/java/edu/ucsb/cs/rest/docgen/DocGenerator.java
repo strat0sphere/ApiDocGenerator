@@ -106,7 +106,7 @@ public class DocGenerator {
 								if (namedTypeDef.getName().equals(operation.getInput().getType()))
 								{					
 									for (Field field : namedTypeDef.getFields())
-										inputParameters.add(new InputParameter(field));
+										inputParameters.add(new InputParameter(field, operation.getInput().getContentType()));
 								}
 							}
 						}
