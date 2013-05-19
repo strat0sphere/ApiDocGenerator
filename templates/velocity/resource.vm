@@ -18,9 +18,11 @@
                 Expand Operations
             </a>
         </li>
+		<!--
         <li>
             <a href='$path'>Raw</a>
         </li>
+		-->
     </ul>
 </div>
 <ul class='endpoints' id='$!{resourceName}_endpoint_list' style='display:none'>
