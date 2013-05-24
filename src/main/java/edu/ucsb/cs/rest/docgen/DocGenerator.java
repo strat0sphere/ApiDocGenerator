@@ -40,7 +40,7 @@ public class DocGenerator {
 	public static void main(String[] args) throws IOException {
 		
 		API api = APIDescriptionParser.parseFromFile("input/starbucks.json");
-		PrintWriter out = new PrintWriter(new FileWriter("output/index.html"));
+		PrintWriter out = new PrintWriter(new FileWriter("/home/stratos/apiProxy/public/index.html"));
 		Writer writer = new StringWriter();
 		Velocity.init();
 		
@@ -54,7 +54,7 @@ public class DocGenerator {
 		NamedInputBinding[] namedInputBindings;
 		NamedTypeDef[] namedTypeDefs = api.getDataTypes();
 		List<InputParameter> inputParameters; //Input parameters per operations. Formed with the inputBindings
-		
+		String baseUrl = api.getBase()[0];
 		
 		//\\\\\\\\\\\\\\ Building the Header \\\\\\\\\\\\\\
 		VelocityContext headerContext = new VelocityContext();
@@ -94,6 +94,7 @@ public class DocGenerator {
 					operationContext.put("httpMethod", operation.getMethod().toLowerCase());
 					operationContext.put("input", operation.getInput());
 					operationContext.put("number", number);
+					operationContext.put("baseUrl", baseUrl);
 					number++;
 					
 					try
@@ -158,6 +159,7 @@ public class DocGenerator {
 			out.print(writer);
 			out.close();
 			//System.out.println(writer);
+			System.out.println("Done! - Click here: file:///home/stratos/docgen/output/index.html");
 		}
 		catch (ResourceNotFoundException rnfe)
 		{
