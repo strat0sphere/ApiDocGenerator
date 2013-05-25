@@ -27,6 +27,6 @@
 #end
 </td>
 <td>$!inputParameter.getDescription()</td>
-<td>$!inputParameter.getType()</td>
+<td id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_$!{inputParameter.getName()}_parameter_type">$!inputParameter.getType()</td>
 </tr>
 #end

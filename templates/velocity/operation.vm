@@ -20,7 +20,7 @@
             </div>
             <div class='content' id='$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_content'>
             
-                <form accept-charset='UTF-8' class='sandbox'>
+                <form id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_form" accept-charset='UTF-8' class='sandbox'>
                     <div style='margin:0;padding:0;display:inline'></div>
 					#if ($!inputParameters)
                         <h4>Parameters</h4>
@@ -57,23 +57,23 @@
 					#end
                     
                     <div class='sandbox_header'>
-						#set ($data = "")
-                        <input onclick='submitOperation("$!baseUrl", "$!httpMethod", "$!data" ,"$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}");'  class='submit' name='commit' type='button' value='Try it out!' />
+						<!--#set ($data = "")-->
+                        <input onclick='submitOperation("$!baseUrl", "$!path", "$!httpMethod","$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}");'  class='submit' name='commit' type='button' value='Try it out!' />
                         <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
                         <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
                     </div>
                  
                 </form>
 	
-                <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}" class='response' style='display:none'>
+                <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response" class='response' style='display:none'>
                     <h4>Request URL</h4>
-                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}" class='block request_url'></div>
+                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_request_url" class='block request_url'></div>
                     <h4>Response Body</h4>
-                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}" class='block response_body'></div>
+                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response_body" class='block response_body'></div>
                     <h4>Response Code</h4>
-                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}" class='block response_code'></div>
+                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response_code" class='block response_code'></div>
                     <h4>Response Headers</h4>
-                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}" class='block response_headers'></div>
+                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response_headers" class='block response_headers'></div>
                 </div>
 			
             </div>
