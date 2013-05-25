@@ -38,6 +38,19 @@
                             </tbody>
                         </table>
 					#end	
+                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Success Status Code</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+							<tr><td>$!output.getStatus()</td></tr>
+                        </tbody>
+                    </table>
+		
                     #if( $!errors )
                     <div style='margin:0;padding:0;display:inline'></div>
                     <h4>Error Status Codes</h4>
