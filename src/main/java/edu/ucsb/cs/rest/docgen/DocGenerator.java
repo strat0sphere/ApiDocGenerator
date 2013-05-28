@@ -39,8 +39,8 @@ public class DocGenerator {
 	 */
 	public static void main(String[] args) throws IOException {
 		
-		API api = APIDescriptionParser.parseFromFile("input/starbucks.json");
-		PrintWriter out = new PrintWriter(new FileWriter("/home/stratos/apiProxy/public/index.html"));
+		API api = APIDescriptionParser.parseFromFile(args[0]); //APIDescriptionParser.parseFromFile("input/starbucks.json");
+		PrintWriter out = new PrintWriter(new FileWriter(args[1]));//new PrintWriter(new FileWriter("/home/stratos/apiProxy/public/index.html"));
 		Writer writer = new StringWriter();
 		Velocity.init();
 		
@@ -159,7 +159,7 @@ public class DocGenerator {
 			out.print(writer);
 			out.close();
 			//System.out.println(writer);
-			System.out.println("Done! - Click here: file:///home/stratos/docgen/output/index.html");
+			System.out.println("Code successfully generated!");
 		}
 		catch (ResourceNotFoundException rnfe)
 		{
