@@ -82,7 +82,7 @@
                     <h4>Request URL</h4>
                     <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_request_url" class='block request_url responseField'></div>
                     <h4>Response Body</h4>
-                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response_body" class='block response_body responseField'></div>
+                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response_body" class='block response_body responseField json'></div>
                     <h4>Response Code</h4>
                     <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response_code" class='block response_code responseField'></div>
                     <h4>Response Headers</h4>
